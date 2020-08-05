@@ -1,0 +1,1 @@
+alter table tb_comment add comment_count int default 0;

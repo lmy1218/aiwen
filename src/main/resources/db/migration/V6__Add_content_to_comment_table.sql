@@ -1,0 +1,1 @@
+alter table tb_comment add content varchar(1024) null;

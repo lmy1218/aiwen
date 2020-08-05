@@ -1,0 +1,1 @@
+alter table tb_user add avatar_url varchar(100) null;

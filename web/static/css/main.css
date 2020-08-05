@@ -1,0 +1,38 @@
+/*.item img {*/
+/*width: 300px;*/
+/*height: 200px;*/
+/*}*/
+.pageshow {
+    float: right;
+    line-height: 50px;
+    margin-top: 50px;
+    margin-right: 150px;
+}
+
+.carousel {
+    width: 525px;
+    height: 210px;
+}
+.media-css {
+    margin-left: 170px;
+    margin-top: 25px;
+}
+
+.ca-img {
+    width: 525px;
+    height: 210px;
+}
+
+.index-image {
+    width: 200px;
+    height: 150px;
+}
+
+.bottom-div {
+    padding: 30px 0 10px;
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+}
+
+

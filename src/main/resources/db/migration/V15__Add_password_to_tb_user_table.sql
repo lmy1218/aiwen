@@ -1,0 +1,1 @@
+alter table tb_user add password varchar(20) default null null;

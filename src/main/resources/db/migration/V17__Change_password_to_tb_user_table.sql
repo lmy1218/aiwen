@@ -1,0 +1,1 @@
+alter table tb_user modify password varchar(100);
