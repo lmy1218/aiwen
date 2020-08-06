@@ -5,8 +5,9 @@
   Time: 15:57
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,java.text.*" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -86,158 +87,49 @@
                 </div>
                 <br/>
                 <br/>
+                <c:forEach items="${questioinPage.list}" var="question">
+                    <div class="media media-css">
 
-                <div class="media media-css">
-                    <div class="media middle-div">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-rounded" src="https://picsum.photos/id/1010/60/60" alt="">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4>
-                                <a th:href="@{'/question/' + ${question.id}}" class="media-heading index-text-a" th:text="${question.title}" >如何快速学会springboot开发</a>
-                            </h4>
-                            <span>
-                                <span class="label label-default"><small th:text="${tag}">Cras s</small></span>
-                            </span>
-                            <span class="text-color-999">
-                            <a href="#" ><span  th:text="${question.tbUser.name}"></span></a> 发布了置顶文章 •
-                            <span>0</span>个评论 •
-                            <span >888</span> 次浏览 •
-                            <span>1</span>
-                        </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="media media-css">
-                    <div class="media middle-div">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-rounded" src="https://picsum.photos/id/1010/60/60" alt="">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4>
-                                <a th:href="@{'/question/' + ${question.id}}" class="media-heading index-text-a" th:text="${question.title}" >如何快速学会springboot开发</a>
-                            </h4>
-                            <span>
-                                <span class="label label-default"><small th:text="${tag}">Cras s</small></span>
-                            </span>
-                            <span class="text-color-999">
-                            <a href="#" ><span  th:text="${question.tbUser.name}"></span></a> 发布了置顶文章 •
-                            <span>0</span>个评论 •
-                            <span >888</span> 次浏览 •
-                            <span>1</span>
-                        </span>
+                        <div class="media middle-div">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object img-rounded" src="${question.user.avatarUrl}" alt="">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4>
+                                    <a href="${ctx}/question/' + ${question.id}" class="media-heading index-text-a" >${question.title}</a>
+                                </h4>
+                                <c:forEach items="${question.tag.split(',')}" var="tag">
+                                    <span class="label label-default"><small>${tag}</small></span>
+                                </c:forEach>
+                                <span class="text-color-999">
+                                    <a href="#" ><span>${question.user.name}</span></a> 发布了置顶文章 •
+                                    <span>${question.commentCount != null ? question.commentCount : 0}</span>个评论 •
+                                    <span >${question.viewCount != null ? question.viewCount : 0}</span> 次浏览 •
+                                    <span>
+                                        <jsp:useBean id="timestamp" class="java.util.Date"/>
+                                        <jsp:setProperty name="timestamp" property="time" value="${question.updateTime}"/>
+                                        <fmt:formatDate value="${timestamp}" pattern="yyyy-MM-dd" />
+                                    </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="media media-css">
-                    <div class="media middle-div">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-rounded" src="https://picsum.photos/id/1010/60/60" alt="">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4>
-                                <a th:href="@{'/question/' + ${question.id}}" class="media-heading index-text-a" th:text="${question.title}" >如何快速学会springboot开发</a>
-                            </h4>
-                            <span>
-                                <span class="label label-default"><small th:text="${tag}">Cras s</small></span>
-                            </span>
-                            <span class="text-color-999">
-                            <a href="#" ><span  th:text="${question.tbUser.name}"></span></a> 发布了置顶文章 •
-                            <span>0</span>个评论 •
-                            <span >888</span> 次浏览 •
-                            <span>1</span>
-                        </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="media media-css">
-                    <div class="media middle-div">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-rounded" src="https://picsum.photos/id/1010/60/60" alt="">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4>
-                                <a th:href="@{'/question/' + ${question.id}}" class="media-heading index-text-a" th:text="${question.title}" >如何快速学会springboot开发</a>
-                            </h4>
-                            <span>
-                                <span class="label label-default"><small th:text="${tag}">Cras s</small></span>
-                            </span>
-                            <span class="text-color-999">
-                            <a href="#" ><span  th:text="${question.tbUser.name}"></span></a> 发布了置顶文章 •
-                            <span>0</span>个评论 •
-                            <span >888</span> 次浏览 •
-                            <span>1</span>
-                        </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="media media-css">
-                    <div class="media middle-div">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-rounded" src="https://picsum.photos/id/1010/60/60" alt="">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4>
-                                <a th:href="@{'/question/' + ${question.id}}" class="media-heading index-text-a" th:text="${question.title}" >如何快速学会springboot开发</a>
-                            </h4>
-                            <span>
-                                <span class="label label-default"><small th:text="${tag}">Cras s</small></span>
-                            </span>
-                            <span class="text-color-999">
-                            <a href="#" ><span  th:text="${question.tbUser.name}"></span></a> 发布了置顶文章 •
-                            <span>0</span>个评论 •
-                            <span >888</span> 次浏览 •
-                            <span>1</span>
-                        </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="media media-css">
-                    <div class="media middle-div">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-rounded" src="https://picsum.photos/id/1010/60/60" alt="">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4>
-                                <a th:href="@{'/question/' + ${question.id}}" class="media-heading index-text-a" th:text="${question.title}" >如何快速学会springboot开发</a>
-                            </h4>
-                            <span>
-                                <span class="label label-default"><small th:text="${tag}">Cras s</small></span>
-                            </span>
-                            <span class="text-color-999">
-                            <a href="#" ><span  th:text="${question.tbUser.name}"></span></a> 发布了置顶文章 •
-                            <span>0</span>个评论 •
-                            <span >888</span> 次浏览 •
-                            <span>1</span>
-                        </span>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
 
                 <!-- 页码显示 -->
                 <div class="pageshow">
-                    <span> 第${currPage }/${totalPage}页</span>
-                &nbsp;&nbsp;  <span>总记录数：${totalCount }&nbsp;&nbsp;每页显示:${pageSize}</span>
+                    <span> 第${questioinPage.currPage}/${questioinPage.totalPage}页</span>
+                &nbsp;&nbsp;  <span>总记录数：${questioinPage.totalCount }&nbsp;&nbsp;每页显示:${questioinPage.pageSize}</span>
                 &nbsp;&nbsp;  <span>
-                        <c:if test="${currPage > 1}">
-                            <a href="${baseUri}/showAllAttendance?page=1">[首页]</a>&nbsp;&nbsp;
-                            <a href="${baseUri}/showAllAttendance?page=${currPage-1}">[上一页]</a>
+                        <c:if test="${questioinPage.currPage > 1}">
+                            <a href="${ctx}/?page=1">[首页]</a>&nbsp;&nbsp;
+                            <a href="${ctx}/?page=${questioinPage.currPage-1}">[上一页]</a>
                     &nbsp;&nbsp;  </c:if>
-                        <c:if test="${currPage < totalPage}">
-                            <a href="${baseUri}/showAllAttendance?page=${currPage+1}">[下一页]</a>&nbsp;&nbsp;
-                            <a href="${baseUri}/showAllAttendance?page=${totalPage}">[尾页]</a>&nbsp;&nbsp;
+                        <c:if test="${questioinPage.currPage < questioinPage.totalPage}">
+                            <a href="${ctx}/?page=${questioinPage.currPage+1}">[下一页]</a>&nbsp;&nbsp;
+                            <a href="${ctx}/?page=${questioinPage.totalPage}">[尾页]</a>&nbsp;&nbsp;
                         </c:if>
 				    </span>
                 </div>

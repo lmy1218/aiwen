@@ -29,7 +29,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="typeAliasesPackage" value="com.lmy.aiwen.entity"></property>
 		<property name="configLocation" value="classpath:mybatis.xml"></property>
-		<!--<property name="mapperLocations" value="classpath:mapping/*Mapper.xml"></property>-->
+		<property name="mapperLocations" value="classpath:mapping/*Mapper.xml"></property>
 	</bean>
 	<!-- 扫描器 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

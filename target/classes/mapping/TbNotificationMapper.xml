@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmy.aiwen.mapper.TbNotificationMapper">
+
+    <resultMap type="com.lmy.aiwen.enttity.TbNotification" id="TbNotificationMap">
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="notifier" column="notifier" jdbcType="BIGINT"/>
+        <result property="receiver" column="receiver" jdbcType="BIGINT"/>
+        <result property="outerid" column="outerid" jdbcType="BIGINT"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="BIGINT"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="notifierName" column="notifier_name" jdbcType="VARCHAR"/>
+        <result property="outerTitle" column="outer_title" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+
+</mapper>

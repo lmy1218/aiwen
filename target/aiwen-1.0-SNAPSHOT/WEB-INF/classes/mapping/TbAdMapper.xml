@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmy.aiwen.mapper.TbAdMapper">
+
+    <resultMap type="com.lmy.aiwen.enttity.TbAd" id="TbAdMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+        <result property="image" column="image" jdbcType="VARCHAR"/>
+        <result property="startTime" column="start_time" jdbcType="BIGINT"/>
+        <result property="endTime" column="end_time" jdbcType="BIGINT"/>
+        <result property="createTime" column="create_time" jdbcType="BIGINT"/>
+        <result property="modifiedTime" column="modified_time" jdbcType="BIGINT"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="pos" column="pos" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+</mapper>
